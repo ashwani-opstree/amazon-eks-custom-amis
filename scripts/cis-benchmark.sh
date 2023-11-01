@@ -891,3 +891,8 @@ cat /etc/shadow | awk -F: '($2 == "" ) { print $1 " does not have a password "}'
 
 echo "6.2.1 - ensure password fields are not empty"
 cat /etc/shadow | awk -F: '($2 == "" ) { print $1 " does not have a password "}'
+
+#adding new commands
+echo "5.3.10 Ensure certificate status checking for PKI authentication"
+sed -i 's/cert_policy = ca, signature;/cert_policy = ca, ocsp_on, signature;/g' /etc/pam_pkcs11/pam_pkcs11.conf
+
